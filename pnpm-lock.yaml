@@ -11,6 +11,9 @@ importers:
       '@ai-sdk/openai':
         specifier: ^1.3.22
         version: 1.3.22(zod@3.25.67)
+      '@duneanalytics/client-sdk':
+        specifier: ^0.2.5
+        version: 0.2.5
       '@mastra/core':
         specifier: ^0.10.5
         version: 0.10.5(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.67)
@@ -21,8 +24,8 @@ importers:
         specifier: ^0.10.2
         version: 0.10.2(@mastra/core@0.10.5(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.67))
       '@mastra/memory':
-        specifier: ^0.10.3
-        version: 0.10.3(@mastra/core@0.10.5(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.67))(react@19.1.0)
+        specifier: ^0.11.0
+        version: 0.11.0(@mastra/core@0.10.5(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.67))(react@19.1.0)
       dotenv:
         specifier: ^16.5.0
         version: 16.5.0
@@ -373,6 +376,9 @@ packages:
     engines: {node: '>=10'}
     peerDependencies:
       '@solana/web3.js': ^1.68.0
+
+  '@duneanalytics/client-sdk@0.2.5':
+    resolution: {integrity: sha512-ftE9sLIuzcxX0g9nhOA0pN/uxTvPwa88CVXpgU2sSRGnN43Kb5ZuaexetVNcNidapdIV95bWW+VpnoSvpMJUXw==}
 
   '@esbuild/aix-ppc64@0.25.5':
     resolution: {integrity: sha512-9o3TMmpmftaCMepOdA5k/yDw8SfInyzWWTjYTFCX3kPSDJMROQTb8jg+h9Cnwnmm1vOzvxN7gIfB5V2ewpjtGA==}
@@ -753,10 +759,10 @@ packages:
       '@mastra/core': ^0.10.2-alpha.0
       zod: ^3.0.0
 
-  '@mastra/memory@0.10.3':
-    resolution: {integrity: sha512-GEAF5mgajff2HPqvjkX8ZFZ98axU5zXhH2NuX2R8odjv21m6viuEAGIAZxQNqK5kspeqCefYdLfrCoq7arOMzA==}
+  '@mastra/memory@0.11.0':
+    resolution: {integrity: sha512-bZGmEZ22k+L92cTmi/QZi7ctlxB0toPk0+0Sflow6Kiw02z22AGIAlNc4obVqUx664+R2nWbvSOmh/ShOiVWig==}
     peerDependencies:
-      '@mastra/core': '>=0.10.4-0 <0.11.0'
+      '@mastra/core': '>=0.10.7-0 <0.11.0-0'
 
   '@mastra/schema-compat@0.10.2':
     resolution: {integrity: sha512-QCPnD0Jd7NJgfVdvNkLPJhqSjyNcA+eaa16N+3kwa+wTBMb6eziWZC1aQNQ6o4T1JVPoo5unVVtL1pqiIgV+tA==}
@@ -2517,6 +2523,10 @@ packages:
     resolution: {integrity: sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==}
     engines: {node: '>= 0.8'}
 
+  deprecated@0.0.2:
+    resolution: {integrity: sha512-vt7tvBJtDu1pmn8HTUc/Q3lSkrgah4Tl5IbbBzqu33jcPQlihAGAO9yD4ubfhFh/xyXD+HbUX1Dg6PwnARWxag==}
+    engines: {node: '>= 0.9'}
+
   dequal@2.0.3:
     resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
     engines: {node: '>=6'}
@@ -3279,6 +3289,10 @@ packages:
   log-symbols@6.0.0:
     resolution: {integrity: sha512-i24m8rpwhmPIS4zscNzK6MSEhk0DUWa/8iYQWxhffV8jkI4Phvs3F+quL5xvS0gdQR0FyTCMMH33Y78dDTzzIw==}
     engines: {node: '>=18'}
+
+  loglevel@1.9.2:
+    resolution: {integrity: sha512-HgMmCqIJSAKqo68l0rS2AanEWfkxaZ5wNiEFb5ggm08lDs9Xl2KxBlX3PTcaD2chBM1gXAYf491/M2Rv8Jwayg==}
+    engines: {node: '>= 0.6.0'}
 
   long@5.3.2:
     resolution: {integrity: sha512-mNAgZ1GmyNhD7AuqnTG3/VQ26o760+ZYBPKjPvugO8+nLbYfX6TVpJPseBvopbdY+qpZ/lKUnmEc1LeZYS3QAA==}
@@ -5181,6 +5195,11 @@ snapshots:
       bn.js: 5.2.2
       buffer-layout: 1.2.2
 
+  '@duneanalytics/client-sdk@0.2.5':
+    dependencies:
+      deprecated: 0.0.2
+      loglevel: 1.9.2
+
   '@esbuild/aix-ppc64@0.25.5':
     optional: true
 
@@ -5646,7 +5665,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@mastra/memory@0.10.3(@mastra/core@0.10.5(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.67))(react@19.1.0)':
+  '@mastra/memory@0.11.0(@mastra/core@0.10.5(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.67))(react@19.1.0)':
     dependencies:
       '@mastra/core': 0.10.5(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.67)
       '@upstash/redis': 1.35.0
@@ -5658,6 +5677,7 @@ snapshots:
       redis: 4.7.1
       xxhash-wasm: 1.1.0
       zod: 3.25.67
+      zod-to-json-schema: 3.24.5(zod@3.25.67)
     transitivePeerDependencies:
       - pg-native
       - react
@@ -7863,6 +7883,8 @@ snapshots:
 
   depd@2.0.0: {}
 
+  deprecated@0.0.2: {}
+
   dequal@2.0.3: {}
 
   destroy@1.2.0: {}
@@ -8665,6 +8687,8 @@ snapshots:
     dependencies:
       chalk: 5.4.1
       is-unicode-supported: 1.3.0
+
+  loglevel@1.9.2: {}
 
   long@5.3.2: {}
 

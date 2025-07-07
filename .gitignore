@@ -4,3 +4,7 @@ dist
 .mastra
 *.db
 *.db-*
+.DS_Store
+.idea
+.vscode
+.env
